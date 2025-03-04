@@ -13,11 +13,11 @@ You can then run `xargs` on prefix.txt for creating filewall (iptables/routeros/
 Ex:
 
 ```sh
-xargs -I {} echo iptables -A bdix-filter -s {} < prefix.txt
+xargs -I {} echo iptables -A bdix-filter -s {} < bdix-prefix_ipv4.txt
 ```
 
 ```sh
 #/ip firewall address-list
-xargs -I {} echo add address={} list=bdix < prefix.txt
+xargs -I {} echo add address={} list=bdix < bdix-prefix_ipv4.txt
 ```
 
