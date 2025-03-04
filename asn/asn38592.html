@@ -1,296 +1,220 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="content-language" content="en" />
-    <meta name="robots" content="all,follow" />
-
-    <meta name="description" content="Live BGP routing table lookup, showing prefixes announced by an autonomous system." />
-    <meta name="keywords" content="live, bgp table, routing table, ip prefix, ip prefixes, autonomous system, asn" />
-    <meta name="google-site-verification" content="qF5i3VVdrvIh5_2rs2HlKKldCkFCUxy_5NU4HkIrnKk" />
-    <meta name="verify-v1" content="pLzepI5wJqd2eVwA1erY7r57G8HdV8Nczr74vKORIHw=" />
-
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="/css/switcher.css" />
-    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="/css/main-msie.css" /><![endif]-->
-    <link rel="stylesheet" media="print" type="text/css" href="/css/print.css" />
-
-    <style type="text/css">
-	.logo-image { position: absolute; left: 20px; width: 500px; height: 75px; }
-
-	#loginbox {
-		background-color: transparent;
-		position: absolute;
-		top: 225px;
-		left: 50%;
-		margin-left: -235px;
-		height: 150px;
-		width: 470px;
-		text-align: center;
-		overflow: hidden;
-		visibility: hidden;
-		z-index: 255;
-	}
-	#twofabox {
-		background-color: transparent;
-		position: absolute;
-		top: 225px;
-		left: 50%;
-		margin-left: -235px;
-		height: 150px;
-		width: 470px;
-		text-align: center;
-		overflow: hidden;
-		visibility: hidden;
-		z-index: 255;
-	}
-    </style>
-
-    <script type="text/javascript" src="/js/switcher.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.cycle.all.js"></script>
-    <link rel="stylesheet" media="screen,projection" type="text/css" href="/01/css/style.css" title="01" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/01/css/style.css" title="01" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/02/css/style.css" title="02" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/03/css/style.css" title="03" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/04/css/style.css" title="04" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/05/css/style.css" title="05" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/06/css/style.css" title="06" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/07/css/style.css" title="07" />
-    <link rel="alternate stylesheet" media="screen,projection" type="text/css" href="/08/css/style.css" title="08" />
-
-    <title>BGP Table Lookup Tool</title>
-
-    <script type="text/javascript">
-	$(document).ready(function() {
-		$('.logo-image').cycle({
-			fx: 'fade',
-			timeout: 4000,
-			speed: 1500
-		});
-	});
-
-	login_box_id = '';
-
-	function toggleLoginBox()
-	{
-		if (login_box_id == "")
-		{
-			var NNtype='show';
-			var IEtype='visible';
-			var WC3type='visible';
-			login_box_id = "1";
-		} else {
-			var NNtype='hidden';
-			var IEtype='hidden';
-			var WC3type='hidden';
-			login_box_id = "";
-		}
-		if (document.getElementById)
-		{
-			eval("document.getElementById('loginbox').style.visibility=\""+WC3type+"\"");
-		} else {
-			if (document.layers)
-			{
-				document.layers['loginbox'].visibility=NNtype;
-			} else {
-				if (document.all)
-				{
-					eval("document.all.loginbox.style.visibility=\""+IEtype+"\"");
-				}
-			}
-		}
-	}
-    </script>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="robots" content="all,follow">
+<meta name="description" content="Live BGP routing table lookup, showing prefixes announced by an autonomous system.">
+<meta name="keywords" content="live, bgp table, routing table, ip prefix, ip prefixes, autonomous system, asn">
+<meta name="google-site-verification" content="qF5i3VVdrvIh5_2rs2HlKKldCkFCUxy_5NU4HkIrnKk">
+<meta name="verify-v1" content="pLzepI5wJqd2eVwA1erY7r57G8HdV8Nczr74vKORIHw="> 
+<title>BGP Table Lookup Tool</title>
+<link rel="preload" as="font" href="/fonts/balooda2-400.ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/balooda2-500.ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/balooda2-600.ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/balooda2-700.ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/balooda2-800.ttf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/fonts/ubuntu-mono.ttf" crossorigin="anonymous">
+<link rel="stylesheet preload" as="style" type="text/css" href="/css/balooda2.css">
+<link rel="stylesheet preload" as="style" type="text/css" href="/css/ubuntu-mono.css">
+<link rel="stylesheet preload" as="style" type="text/css" href="/css/duotone.min.css">
+<link rel="stylesheet preload" as="style" type="text/css" href="/css/fontawesome.min.css">
+<link rel="stylesheet preload" as="style" type="text/css" href="/css/video-js.css">
+<link rel="stylesheet preload" as="style" type="text/css" href="/css/style.css">
+<script src="/js/jquery-3.6.0.min.js"></script>
+<script src="/js/main.js"></script>
 </head>
-
 <body>
-<div>
-<span style="color: #ff0000; background: #000000; text-align: right; font-weight: bold; font-size: 12pt; position: fixed; top: 0px; right: 0px; z-index: 10; "> &nbsp; 256-bit SSL HTTP/2.0 IPv4 &nbsp; </span>
-</div>
-<div id="main">
-    <div id="header">
-        <div class="logo-image">
-            <a href="http://dan.is/"><img src="/images/danis.png" width="500" height="75" alt="dan.is [iceland]" /></a>
-            <a href="http://dan.xxx/"><img src="/images/danxxx.png" width="500" height="75" alt="dan.xxx" /></a>
-            <a href="http://dan.tm/"><img src="/images/dantm.png" width="500" height="75" alt="dan.tm [turkmenistan]" /></a>
-            <a href="http://dan.lc/"><img src="/images/danlc.png" width="500" height="75" alt="dan.lc [saint lucia]" /></a>
-            <a href="http://dan.cm/"><img src="/images/dancm.png" width="500" height="75" alt="dan.cm [cameroon]" /></a>
-            <a href="http://dan.me.uk/"><img src="/images/danmeuk.png" width="500" height="75" alt="dan.me.uk [united kingdom]" /></a>
-            <a href="http://dan.gs/"><img src="/images/dangs.png" width="500" height="75" alt="dan.gs [south georgia and the south sandwich isles]" /></a>
-            <a href="http://dan.tv/"><img src="/images/dantv.png" width="500" height="75" alt="dan.tv [tuvalu]" /></a>
+<div class="background"></div>
+<div class="wrapper">
+<div class="titlebar">
+	<div class="logo"><a href="/"><img src="/images/danmeuk.png" alt="logo"></a></div>
+	<div class="clientinfo">
+		<div class="ci-keyval"><span class="ci-key">IPv4 Address:</span><span class="ci-val" id="ci-ip4">-</span><span class="ci-marker4"></span></div>
+		<div class="ci-keyval"><span class="ci-key">IPv6 Address:</span><span class="ci-val" id="ci-ip6">-</span><span class="ci-marker6"></span></div>
+		<div class="ci-keyval"><span class="ci-key">Service Provider:</span><span class="ci-val" id="ci-isp">-</span></div>
+		<div class="ci-keyval"><span class="ci-key">SSL Information:</span><span class="ci-val" id="ci-ssl">-</span></div>
+		<div class="ci-keyval"><span class="ci-key">HTTP Protocol:</span><span class="ci-val" id="ci-proto">-</span></div>
+		<div class="ci-v4v6"><span class="ci-ip46" id="ci-ip46"></span></div>
 	</div>
-        <hr class="noscreen" />          
-        <p id="switcher">
-            <a href="#" onclick="setActiveStyleSheet('06'); return false;"><img src="/images/06.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('01'); return false;"><img src="/images/01.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('08'); return false;"><img src="/images/08.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('04'); return false;"><img src="/images/04.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('02'); return false;"><img src="/images/02.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('05'); return false;"><img src="/images/05.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('07'); return false;"><img src="/images/07.gif" width="10" height="10" alt="" /></a>
-            <a href="#" onclick="setActiveStyleSheet('03'); return false;"><img src="/images/03.gif" width="10" height="10" alt="" /></a>
-        </p>
-    </div>
-    
-    <!-- Tray/top-bar -->
-    <div id="tray">
-        <ul class="box">
-		<li>You're connected from 103.102.43.120 (via AS137020: FCN-AS-AP from , BD) using a 256-bit SSL HTTP/2.0 IPv4 connection.</li>
-        </ul>
-    <hr class="noscreen" />
-    </div>
+	<div class="title-footer-div"><span class="title-footer"></span></div>
+	<div class="nodeinfo">
+		<div class="ni-keyval"><span class="ni-key">Database:</span><span class="ni-val" id="ni-db">-</span></div>
+		<div class="ni-keyval"><span class="ni-key">Web:</span><span class="ni-val" id="ni-web">-</span></div>
+	</div>
+</div>
+<div class="contentbox"><div class="content-title"><span id="content-title"></span></div>
+<div class="cb" id="content-box">
+<script>
+	var asnTimer;
 
-    <div id="cols" class="box">
-        <div id="content">
-            <div id="content-left">
-                <div id="content-left-in">
-		<!-- end header -->
+	setContentTitle('BGP Lookup');
 
-				<h3 class="title">BGP Lookup Tool</h3>
-				<div class="article box">This will allow you to lookup a list of prefixes currently announced via BGP.<br />
-BGP is the current global routing table, and reflects how ISPs reach destination IPs.<br /><br />
-<form action="/bgplookup" method="get">
-<table>
-<tr>
-<td align="right" valign="top"><b>AS to Query:</b></td>
-<td align="left"><input type="text" name="asn" value="38592" maxlength="10" size="12" /> <input type="submit" value="Lookup!" /><br />
-<input type="checkbox" name="include_downstream" checked /> &nbsp; Include downstream prefixes</td>
-</tr>
-</table>
+	function updateASN() {
+		if (asn != 0) {
+			$('#asn').val(asn);
+			clearInterval(asnTimer);
+		}
+	}
+
+	$(window).on('load', function() {
+		var tmp = $('#asn').val();
+		if (tmp == '')
+			asnTimer = setInterval(updateASN, 250);
+	});
+</script>
+<div class="cb-box"><span>Live BGP Lookup</span>
+<p>This tool allows you to lookup current live BGP routing data for a specific autonomous system.<br>
+This will report the current IPv4/IPv6 prefixes announced from or via a specific AS number.<br><br>
+Routers around the internet announce the IP prefixes they handle routing for to their peers.<br>
+Each peer decides, for each IP prefix, which path is chosen for the active routing table entry.<br>
+Generally, a more specific IP prefix will be chosen over a less specific one but this is not always the case.<br>
+Each border router decides what next-hop will be taken for each prefix.<br><br>
+<b>NOTE:</b> By default, this tool will report 32-bit ASNs in ASDOT format, use the checkbox to use ASPLAIN.</p>
+<form method="get">
+<div class="table" style="width: fit-content">
+	<div class="lhs">ASN to query:</div>
+	<div class="rhs"><input class="inputbox" id="asn" type="text" name="asn" value="38592" maxlength="10" /><br><br>
+<input type="checkbox" name="include_downstream"  checked /> &nbsp; Include downstream prefixes<br><br>
+<input type="checkbox" name="format_asplain" /> &nbsp; Show AS numbers in ASPLAIN format<br><br>
+<input class="inputbutton" type="submit" name="submit" value="Lookup" /></div>
+</div>
 </form>
-<b>IPv4 Prefixes seen at AS38592:</b><br /><br />
-<table border="0" cellspacing="0" cellpadding="0">
-<tr><td align="left"> &nbsp; 101.2.160.0/21 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 101.2.160.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 101.2.161.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 101.2.162.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 101.2.163.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 101.2.166.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 101.2.167.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 103.5.232.0/22 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 103.5.232.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 103.5.233.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 103.5.234.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 103.5.235.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 119.10.172.0/22 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 119.10.172.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 119.10.173.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 119.10.174.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 119.10.175.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 163.47.84.0/22 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 163.47.84.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 163.47.85.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 163.47.86.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 163.47.87.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.168.0/21 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.168.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.169.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.170.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.171.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.172.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.173.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.174.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 202.65.175.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 203.80.188.0/22 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 203.80.188.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 203.80.190.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-<tr><td align="left"> &nbsp; 203.80.191.0/24 &nbsp; </td><td align="left"> &nbsp; [AS38592] &nbsp; </td></tr>
-</table>
-<br />
-<b>35 prefixes found.</b><br />
-<br />
-				</div>
+</div>
+<div class="cb-box"><span>BGP Lookup - Results for AS38592</span>
+<pre>
+2402:2300::/32                             AS38592
+2402:2300:1211::/48                        AS38592
+2402:2300:1212::/48                        AS38592
+2402:2300:1215::/48                        AS38592
+101.2.160.0/21                             AS38592
+101.2.160.0/24                             AS38592
+101.2.161.0/24                             AS38592
+101.2.162.0/24                             AS38592
+101.2.163.0/24                             AS38592
+101.2.164.0/24                             AS38592
+101.2.165.0/24                             AS38592
+101.2.166.0/24                             AS38592
+101.2.167.0/24                             AS38592
+103.5.232.0/22                             AS38592
+103.5.232.0/24                             AS38592
+103.5.233.0/24                             AS38592
+103.5.234.0/24                             AS38592
+103.5.235.0/24                             AS38592
+119.10.168.0/22                            AS38592
+119.10.168.0/24                            AS38592
+119.10.169.0/24                            AS38592
+119.10.170.0/24                            AS38592
+119.10.171.0/24                            AS38592
+119.10.172.0/22                            AS38592
+119.10.172.0/24                            AS38592
+119.10.173.0/24                            AS38592
+119.10.174.0/24                            AS38592
+119.10.175.0/24                            AS38592
+163.47.84.0/22                             AS38592
+163.47.84.0/24                             AS38592
+163.47.85.0/24                             AS38592
+163.47.86.0/24                             AS38592
+163.47.87.0/24                             AS38592
+202.65.168.0/21                            AS38592
+202.65.168.0/24                            AS38592
+202.65.169.0/24                            AS38592
+202.65.170.0/24                            AS38592
+202.65.171.0/24                            AS38592
+202.65.172.0/24                            AS38592
+202.65.173.0/24                            AS38592
+202.65.174.0/24                            AS38592
+202.65.175.0/24                            AS38592
+203.80.188.0/22                            AS38592
+203.80.188.0/24                            AS38592
+203.80.189.0/24                            AS38592
+203.80.190.0/24                            AS38592
+203.80.191.0/24                            AS38592
 
-		<!-- start footer -->
-                </div>
-            </div>
-        </div>
 
-        <div id="aside">
-            <div id="aside-top"></div>
-            <div class="padding">
-                <h4 class="nom">Navigation</h4>
-            </div>
-            
-            <ul class="nav">
-<li><a href="/">Index</a></li>
-<li>
-<a href="javascript:toggleLoginBox();">Login</a></li>
-<li><a href="/about">About Me (Dan)</a></li>
-<li><a href="/2e0nnx">Amateur Radio 2E0NNX</a></li>
-<li id="nav-active"><a href="/bgplookup">BGP Lookup Tool</a></li>
-<li><a href="/blog/">Blog (Tech Hints &amp; Tips)</a></li>
-<li><a href="/dnsbl">DNS Blacklists (dnsbl)</a></li>
-<li><a href="/dnsinfo">DNS Server Info</a></li>
-<li><a href="/donate">Donations</a></li>
-<li><a href="/filtergen">Filter List Generator</a></li>
-<li><a href="/ipinfo">IP Information Tool</a></li>
-<li><a href="/ipsubnets">IP Subnet Calculator</a></li>
-<li><a href="/serverinfo">Local Server Information</a></li>
-<li><a href="/keygen">Password Tool</a></li>
-<li><a href="/media/" rel="external">Picture Gallery</a></li>
-<li><a href="/tornodes">Tor Node List</a></li>
-<li><a href="https://mail.dan.me.uk/" rel="external">Webmail Access</a></li>
-<li><a href="/websiteinfo">Website Info Tool</a></li>
-            </ul>
-                
-	</div>
-        <div id="aside-bottom"></div>
-    </div>
-
-    <div id="footer">
-        <p class="f-right">
-	<a href="http://validator.w3.org/check?uri=https%3A%2F%2Fwww.dan.me.uk%2Fbgplookup%3Fasn%3D38592%26include_downstream%3Don"><img src="/images/valid-xhtml10.png" width="88" height="31" alt="Valid XHTML 1.0 Strict" /></a> &nbsp; &nbsp; 
-	<a href="http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwww.dan.me.uk%2Fbgplookup%3Fasn%3D38592%26include_downstream%3Don"><img src="/images/vcss.gif" width="88" height="31" alt="Valid CSS!" /></a>
-	<img src="/images/powered-by.gif" width="171" height="64" alt="Powered by FreeBSD" />
-	</p>
-        <p>Copyright &copy;&nbsp;0b11111100010<br /><strong><a href="./about">Daniel Austin MBCS</a></strong><br /><br />All Rights Reserved &reg;</p>
-    </div>
+47 total prefixes (4 IPv6, 43 IPv4)
+</pre>
 </div>
 
-<div id="loginbox">
-	<form action="./" method="post">
-	<div id="topstory-top"></div>
-	<div id="topstory" class="box" style="text-align: left;">
-		<table>
-			<tr>
-				<td><input type="hidden" name="action" value="login" />
-					<b>Username: &nbsp; </b></td>
-				<td> &nbsp; <input type="text" name="login_user" maxlength="16" value="" /></td>
-			</tr>
-			<tr>
-				<td><b>Password: &nbsp; </b></td>
-				<td> &nbsp; <input type="password" name="login_pass" maxlength="128" value="" /></td>
-			</tr>
-		</table>
-	</div>
-	<div id="topstory-list" class="box">
-		<p class="nom"><input type="submit" name="login" value="Login" /></p>
-	</div>
-	<div id="topstory-bottom"></div>
-	</form>
+</div></div>
+<div class="padding"></div>
+<div class="statusbar-div">
+<span class="statusbar">Copyright &copy; 2025 Daniel Austin MBCS.<br>
+Proudly hosted using the FreeBSD operating system.</span>
+<div class="statusbar-logos">
+<a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener"><img class="bsdlogo" style="border:0;width:auto;height:25px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!"></a> &nbsp; 
+<a href="https://www.freebsd.org/" target="_blank" rel="noopener"><img class="bsdlogo" src="/images/freebsd_logo.png" alt="FreeBSD Logo"></a></div>
+<div class="statusbar-buttons">
+<div class="tooltip"><i class="fa-duotone fa-at" id="icon-email"></i><span class="tooltiptext">E-mail me</span></div>
+<div class="tooltip"><i class="fa-duotone fa-key" id="icon-pgpkey"></i><span class="tooltiptext">PGP Key</span></div>
+<div class="statusbar-sep"></div>
 </div>
-<div id="twofabox">
-	<form action="./" method="post">
-	<div id="topstory2-top"></div>
-	<div id="topstory2" class="box" style="text-align: left;">
-		<table>
-			<tr>
-				<td colspan="2"><b>Two-Factor Authentication Required</b><br />
-Please enter the code from your Google Authenticator Mobile App/Plugin:</td>
-			</tr>
-			<tr>
-				<td style="text-align: center;" colspan="2"><input type="hidden" name="login_request" value="" /><input type="hidden" name="action" value="2falogin" />
-				<input type="text" name="login_token" maxlength="16" value="" /></td>
-			</tr>
-		</table>
-	</div>
-	<div id="topstory2-list" class="box">
-		<p class="nom"><input type="submit" name="login" value="Login" /></p>
-	</div>
-	<div id="topstory2-bottom"></div>
-	</form>
+<div class="statusbar-icons">
+<div class="tooltip"><i class="fa-duotone fa-id-card" id="icon-loggedin"></i><span class="tooltiptext" id="tt-loggedin"></span></div>
+<div class="tooltip"><i class="fa-duotone fa-bolt-lightning" id="icon-http2"></i><span class="tooltiptext" id="tt-http2"></span></div>
+<div class="tooltip"><i class="fa-duotone fa-user-secret" id="icon-proxyvpn"></i><span class="tooltiptext" id="tt-proxyvpn"></span></div>
 </div>
+<div class="emailme">
+	<div class="emailme-title"><span>E-mail me</span></div>
+	<i class="fa-duotone fa-at"></i>
+	<span class="emailme-content" id="email"></span>
+</div>
+</div>
+<div class="menubar-div">
+	<a class="menubar-footer" href="javascript:void(0)" data-id="menu">&#9660; &nbsp; MENU &nbsp; &#9660;</a>
+	<div class="menubar mb-dummy"></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/">Home / Index</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/about">About Dan</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/blog">Blog (Tech Hints &amp; Tips)</a></div>
+	<div class="menubar logoutonly"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="javascript:void(0)" data-id="login">Login</a></div>
+	<div class="menubar mb-section loginonly"><span>&#9660; &nbsp; Logged-in Area &nbsp; &#9660;</span></div>
+	<div class="menubar loginonly"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="javascript:void(0)" data-id="logout">Logout</a></div>
+	<div class="menubar loginonly"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/accountmanagement">Account Management</a></div>
+	<div class="menubar loginonly"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/mailpanel">Mail Control Panel</a></div>
+	<div class="menubar mb-section"><span>&#9660; &nbsp; Useful Tools &nbsp; &#9660;</span></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/bgplookup">BGP Lookup Tool</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/dnsbl">DNS Blacklists</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/filtergen">Filterlist Generator</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/ipinfo">IP Information Tool</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/ipsubnets">IP Subnet Calculator</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/keygen">Password Tool</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/tornodes">TOR Node List</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/websiteinfo">Website Info Tool</a></div>
+	<div class="menubar mb-section"><span>&#9660; &nbsp; Other Pages &nbsp; &#9660;</span></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/2e0nnx">Amateur Radio (2E0NNX)</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/sale">Domains for Sale</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/donate">Donations</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="/media/">Picture Gallery</a></div>
+	<div class="menubar"><i class="fa-duotone fa-angle-right"></i><a class="menubar-item" href="https://mail.dan.me.uk/">Webmail Access</a></div>
+</div>
+<div class="loggedin"><span>LOGGED IN</span></div>
+</div>
+<div class="loginbox">
+	<div class="loginbox-title"><span>Login</span></div>
+	<div class="loginbox-close"><i class="fa-duotone fa-square-xmark" id="login-x"></i></div>
+	<img class="loginbox-padlock" src="/images/padlock.png" alt="padlock icon">
+	<div class="loginbox-inputs">
+		<div class="loginbox-input"><i class="fa-duotone fa-user-lock"></i><input type="text" id="loginUser" placeholder="Username" value="" required></div>
+		<div class="loginbox-input"><i class="fa-duotone fa-key"></i><input type="password" id="loginPass" placeholder="Password" value="" required></div>
+		<div class="loginbox-input"><i class="fa-duotone fa-fingerprint"></i><input type="text" id="login2FA" maxlength="6" placeholder="2FA code (if needed)" value=""></div>
+	</div>
+	<button class="loginbox-button" id="loginbtn" data-id="loginbtn">Login</button>
+	<div class="loginbox-err"><span class="loginbox-errtitle">LOGIN ERROR</span><span class="loginbox-errmsg" id="login-err">#123: random error here</span></div>
+</div>
+<div class="gallery-image" id="gallery-image">
+	<div class="gallery-image-title"><span id="gallery-img-title"></span></div>
+	<div class="gallery-image-close"><i class="fa-duotone fa-square-info" id="gallery-image-i"></i> &nbsp; <i class="fa-duotone fa-square-xmark" id="gallery-image-x"></i> &nbsp; </div>
+	<div class="gallery-image-src"><span><a id="gallery-img-link" href="#" target="_blank"><img id="gallery-img" src="data:," alt="Image"></a></span><div style="position: absolute; width: 100%; height: calc(100% - 2rem)"><video id="gallery-vid" class="video-js" controls preload="auto" data-setup="{}"></video></div></div>
+	<div class="gallery-image-prev"><a href="javascript:galleryPrev();"><i class="fa-duotone fa-angles-left"></i></a></div>
+	<div class="gallery-image-next"><a href="javascript:galleryNext();"><i class="fa-duotone fa-angles-right"></i></a></div>
+	<div class="gallery-image-info">
+		<div class="table gallerytable" id="gallery-info"></div>
+		<div class="gps">
+			<div style="width: 100%; height: 100%" id="gps"></div>
+			<div class="gallery-nogps"><p>Unknown Location</div></div>
+		</div>
+</div>
+<script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+	({key: "AIzaSyB2VaSd1aSe9_ztV9K3jP2koM_py8oO3Nk", v: "beta"});</script>
+<script src="/js/video.min.js"></script>
 </body>
 </html>
