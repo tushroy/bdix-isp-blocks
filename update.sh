@@ -12,7 +12,7 @@ git pull origin master
 
 echo "Running asn2prefix.sh"
 # Run the update script
-sh asn2prefix.sh
+bash asn2prefix.sh
 
 # Get current date and time (YYYY-MM-DD HH:MM)
 CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M")
