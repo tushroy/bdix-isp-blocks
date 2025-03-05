@@ -40,7 +40,7 @@ RUN chmod +x /root/entrypoint.sh
 # Copy crontab file and install cron job
 COPY crontab /etc/crontab
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/root/entrypoint.sh"]
 
 # https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
 # -f | Stay in foreground mode, don't daemonize.
