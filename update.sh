@@ -1,13 +1,16 @@
 #!/bin/bash
-
+echo "Cloning git@github.com:tushroy/bdix-isp-blocks.git"
 git clone git@github.com:tushroy/bdix-isp-blocks.git
 cd /root/bdix-isp-blocks
 
+echo "Pull the latest changes"
 # Pull the latest changes
 git pull origin master
 
 # Make the asn2prefix.sh script executable
 chmod +x asn2prefix.sh
+
+echo "Running asn2prefix.sh"
 # Run the update script
 ./asn2prefix.sh
 
@@ -19,5 +22,7 @@ git add .
 git commit -m "Automated update: $CURRENT_DATETIME"
 git push origin master
 
+echo "Remoting /root/bdix-isp-blocks"
 cd /root
 rm -r -f /root/bdix-isp-blocks
+echo "Finished"
