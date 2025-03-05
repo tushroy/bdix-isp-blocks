@@ -24,12 +24,6 @@ RUN chmod 600 /root/.ssh/id_rsa && chmod 644 /root/.ssh/id_rsa.pub
 # Prevent SSH from asking for confirmation
 RUN echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
 
-# Clone the repository
-RUN git clone git@github.com:tushroy/bdix-isp-blocks.git
-
-# Change working directory to the repository
-WORKDIR /root/bdix-isp-blocks
-
 # Copy update script and set permissions
 COPY update.sh /root/update.sh
 RUN chmod +x /root/update.sh

@@ -1,4 +1,6 @@
 #!/bin/bash
+
+git clone git@github.com:tushroy/bdix-isp-blocks.git
 cd /root/bdix-isp-blocks
 
 # Pull the latest changes
@@ -16,3 +18,6 @@ CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M")
 git add .
 git commit -m "Automated update: $CURRENT_DATETIME"
 git push origin master
+
+cd /root
+rm -r -f /root/bdix-isp-blocks
