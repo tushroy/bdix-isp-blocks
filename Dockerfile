@@ -32,4 +32,4 @@ RUN chmod +x /root/update.sh
 COPY crontab /etc/crontabs/root
 
 # Start cron in the foreground
-CMD ["crond", "-f", "-L", "2"]
+CMD ["crond", "-f"]
