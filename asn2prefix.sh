@@ -4,7 +4,7 @@
 check_dependency() { 
     if ! command -v "$1" &>/dev/null; then
         echo "Error: '$1' is not installed."
-        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        if [[ "$OSTYPE" == "linux"* ]]; then
             if command -v apt &>/dev/null; then
                 echo "Attempting to install '$1' using apt..."
                 sudo apt update && sudo apt install -y "$2"
