@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Function to check and install dependencies
-check_dependency() {
+check_dependency() { 
     if ! command -v "$1" &>/dev/null; then
         echo "Error: '$1' is not installed."
-        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        if [[ "$OSTYPE" == "linux"* ]]; then
             if command -v apt &>/dev/null; then
                 echo "Attempting to install '$1' using apt..."
                 sudo apt update && sudo apt install -y "$2"
@@ -17,6 +17,9 @@ check_dependency() {
             elif command -v pacman &>/dev/null; then
                 echo "Attempting to install '$1' using pacman..."
                 sudo pacman -Sy --noconfirm "$2"
+            elif command -v apk &>/dev/null; then
+                echo "Attempting to install '$1' using apk..."
+                sudo apk add "$2"
             else
                 echo "Error: Package manager not found. Install '$1' manually."
                 exit 1
