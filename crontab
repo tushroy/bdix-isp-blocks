@@ -1,1 +1,1 @@
-0 0 * * * /bin/bash /root/update.sh >> /var/log/cron.log 2>&1
+0 0 * * * /root/update.sh >/dev/tty 2>&1

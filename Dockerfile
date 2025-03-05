@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y \
     cron \
     grep \
     html2text \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && which cron \
+    && rm -rf /etc/cron.*/*
 
 # Set timezone to UTC (or change as needed)
 RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
@@ -34,11 +36,11 @@ COPY update.sh /root/update.sh
 RUN chmod +x /root/update.sh
 
 # Copy crontab file and install cron job
-COPY crontab /etc/cron.d/root-crontab
-RUN chmod 0644 /etc/cron.d/root-crontab && crontab /etc/cron.d/root-crontab
+COPY crontab /etc/crontab
 
-# Set shell to bash
-SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/entrypoint.sh"]
 
-# Start cron in the foreground
-CMD ["cron", "-f"]
+# https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
+# -f | Stay in foreground mode, don't daemonize.
+# -L loglevel | Tell  cron  what to log about jobs (errors are logged regardless of this value) as the sum of the following values:
+CMD ["cron","-f", "-L", "2"]
