@@ -33,7 +33,9 @@ RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
 
 # Copy update script and set permissions
 COPY update.sh /root/update.sh
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /root/update.sh
+RUN chmod +x /root/entrypoint.sh
 
 # Copy crontab file and install cron job
 COPY crontab /etc/crontab

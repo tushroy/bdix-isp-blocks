@@ -24,7 +24,7 @@ git add .
 git commit -m "Automated update: $CURRENT_DATETIME"
 git push origin master
 
-echo "Remoting /root/bdix-isp-blocks"
+echo "Removing /root/bdix-isp-blocks"
 cd /root
 rm -r -f /root/bdix-isp-blocks
 echo "Finished"
