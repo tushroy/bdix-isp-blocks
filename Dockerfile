@@ -1,17 +1,18 @@
-# Use Alpine Linux as the base image
-FROM alpine:latest
+# Use Ubuntu as the base image
+FROM ubuntu:latest
 
-# Install necessary packages: Git, OpenSSH (for authentication), and cron
-RUN apk add --no-cache \
+# Update package list and install necessary packages: Git, OpenSSH (for authentication), curl, bash, cron, and tzdata
+RUN apt-get update && apt-get install -y \
     git \
-    openssh \
+    openssh-client \
     bash \
     curl \
     tzdata \
-    cronie
+    cron \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set timezone to UTC (or change as needed)
-RUN cp /usr/share/zoneinfo/UTC /etc/localtime
+RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 
 # Set the working directory
 WORKDIR /root
@@ -29,7 +30,10 @@ COPY update.sh /root/update.sh
 RUN chmod +x /root/update.sh
 
 # Copy crontab file and install cron job
-COPY crontab /etc/crontabs/root
+COPY crontab /etc/cron.d/root-crontab
+
+# Set proper permissions for crontab file
+RUN chmod 0644 /etc/cron.d/root-crontab
 
 # Start cron in the foreground
-CMD ["crond", "-f"]
+CMD ["cron", "-f"]
