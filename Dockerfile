@@ -33,7 +33,7 @@ RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
 
 # Copy update script and set permissions
 COPY update.sh /root/update.sh
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /root/entrypoint.sh
 RUN chmod +x /root/update.sh
 RUN chmod +x /root/entrypoint.sh
 
