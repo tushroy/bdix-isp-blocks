@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y \
     cron \
     grep \
     findutils \
-    xargs \
     html2text \
     && rm -rf /var/lib/apt/lists/*
 
