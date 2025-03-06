@@ -13,7 +13,7 @@ RUN apk add --no-cache \
     tini \
     curl \
     tzdata \
-    html2text 
+    lynx  
 
 ENV TZ=Asia/Dhaka
 
