@@ -13,6 +13,8 @@ RUN apk add --no-cache \
     curl \
     tzdata \
 	html2text 
+	
+ENV TZ=Asia/Dhaka
 
 # Set the working directory
 WORKDIR /root
