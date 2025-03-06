@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo "Cloning git@github.com:tushroy/bdix-isp-blocks.git"
 git clone git@github.com:tushroy/bdix-isp-blocks.git
 cd /root/bdix-isp-blocks
@@ -24,7 +24,7 @@ git add .
 git commit -m "Automated update: $CURRENT_DATETIME"
 git push origin master
 
-echo "Remoting /root/bdix-isp-blocks"
+echo "Removing /root/bdix-isp-blocks"
 cd /root
 rm -r -f /root/bdix-isp-blocks
 echo "Finished"

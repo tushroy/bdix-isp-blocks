@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Function to check and install dependencies
 check_dependency() { 
