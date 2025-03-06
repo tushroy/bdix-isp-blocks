@@ -1,22 +1,17 @@
-# Use Ubuntu as the base image
-FROM ubuntu:latest
+# Use Alpine Linux as the base image
+FROM alpine:latest
 
-# Update package list and install necessary packages: Git, OpenSSH (for authentication), curl, bash, cron, and tzdata
-RUN apt-get update && apt-get install -y \
+RUN which crond && \
+    rm -rf /etc/periodic
+
+# Install necessary packages: Git, OpenSSH (for authentication), and cron
+RUN apk add --no-cache \
     git \
-    openssh-client \
+    openssh \
     bash \
     curl \
     tzdata \
-    cron \
-    grep \
-    html2text \
-    && rm -rf /var/lib/apt/lists/* \
-    && which cron \
-    && rm -rf /etc/cron.*/*
-
-# Set timezone to UTC (or change as needed)
-RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+	html2text 
 
 # Set the working directory
 WORKDIR /root
@@ -45,4 +40,4 @@ ENTRYPOINT ["/root/entrypoint.sh"]
 # https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
 # -f | Stay in foreground mode, don't daemonize.
 # -L loglevel | Tell  cron  what to log about jobs (errors are logged regardless of this value) as the sum of the following values:
-CMD ["cron","-f", "-L", "2"]
+CMD ["crond", "-f", "-l", "2"]
