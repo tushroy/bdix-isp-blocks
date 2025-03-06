@@ -19,15 +19,14 @@ ENV TZ=Asia/Dhaka
 # Set the working directory
 WORKDIR /root
 
-# Ensure the .ssh directory exists
-RUN mkdir -p /root/.ssh
+RUN mkdir -p -m 0600 /root/.ssh && ssh-keyscan -H github.com >> /root/.ssh/known_hosts
+
+# Prevent SSH from asking for confirmation
+RUN echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
 
 # Copy SSH keys (WARNING: Avoid adding private keys directly in Dockerfile)
 COPY id_rsa.pub /root/.ssh/id_rsa.pub
 RUN chmod 644 /root/.ssh/id_rsa.pub
-
-# Prevent SSH from asking for confirmation by properly writing the config
-RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" > /root/.ssh/config
 
 # Copy update script and set permissions
 COPY update.sh /root/update.sh
