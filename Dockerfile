@@ -6,14 +6,15 @@ RUN which crond && \
 
 # Install necessary packages: Git, OpenSSH (for authentication), and cron
 RUN apk add --no-cache \
+    grep \
     git \
     openssh \
     bash \
-	tini \
+    tini \
     curl \
     tzdata \
-	html2text 
-	
+    html2text 
+
 ENV TZ=Asia/Dhaka
 
 # Set the working directory
