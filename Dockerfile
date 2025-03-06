@@ -9,6 +9,7 @@ RUN apk add --no-cache \
     git \
     openssh \
     bash \
+	tini \
     curl \
     tzdata \
 	html2text 
@@ -35,7 +36,7 @@ RUN chmod +x /root/entrypoint.sh
 # Copy crontab file and install cron job
 COPY crontab /var/spool/cron/crontabs/root
 
-ENTRYPOINT ["/root/entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "-s", "/root/entrypoint.sh"]
 
 # https://manpages.ubuntu.com/manpages/trusty/man8/cron.8.html
 # -f | Stay in foreground mode, don't daemonize.
