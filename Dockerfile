@@ -33,7 +33,7 @@ RUN chmod +x /root/update.sh
 RUN chmod +x /root/entrypoint.sh
 
 # Copy crontab file and install cron job
-COPY crontab /etc/crontab
+COPY crontab /var/spool/cron/crontabs/root
 
 ENTRYPOINT ["/root/entrypoint.sh"]
 
