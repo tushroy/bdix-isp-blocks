@@ -15,7 +15,7 @@ echo "Running asn2prefix.sh"
 ./asn2prefix.sh
 
 # Get current date and time (YYYY-MM-DD HH:MM)
-CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M")
+CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M %Z")
 
 git config user.email "skydel.net@gmail.com"
 git config user.name "Tushar Roy"
