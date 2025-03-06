@@ -1,119 +1,119 @@
-AS42	"WoodyNet, Inc."
-AS3856	"Packet Clearing House, Inc."
-AS6447	University of Oregon
-AS7500	WIDE Project
-AS9230	Bangladesh Online Ltd.
-AS9441	Next Online Limited.
-AS9825	Sustainable Development Networking Program
-AS9832	"ISN, Internet Service Provider"
-AS17471	Grameen Cybernet Ltd. Bangladesh. AS for local peering and transit. Dhaka
-AS18230	Zipnet Limited DKB AS number
-AS23688	Link3 Technologies Ltd.
-AS23923	Agni Systems Limited
-AS23991	Ranks ITT Ltd.
-AS24323	"aamra networks limited,"
-AS24342	BRACNet Limited
-AS24481	"ConnectBD Ltd. Internet Service provider, House # 41, Road1/A, BlockI, Banani, Dhaka"
-AS26415	VeriSign Global Registry Services
-AS38026	"MetroNet Bangladesh Limited, Fiber Optic Based Metropolitan Data"
-AS38067	Radiant Communications Limited
-AS38200	"BTS Communications (BD) ltd,"
-AS38203	ADN Telecom Ltd.
-AS38256	"Bengal Group Ltd. Nationwide Internet Service Provider, Bangladesh."
-AS38493	Royal Green Communication Limited
-AS38588	Felicity IDC Limited
-AS38592	Chittagong Online Limited AS38592 AP
-AS38614	"IDS Bangladesh. IP Transit provider. Dhaka, Bangladesh"
-AS38712	Telnet Communication Limited Network and Transit Service Provider. Having Nationwide MPLS Network Fo
-AS38744	AlwaysOn Network Bangladesh Ltd
-AS45276	NReach Net (Pvt.) Ltd
-AS45326	Broad Band Telecom Services Ltd
-AS45766	Triangle Services Limited.
-AS55406	HRC Technologies Ltd
-AS55492	Dhaka Fiber Net Limited
-AS55828	Drik ICT Ltd
-AS56054	Icon Infotech Limited
-AS58629	Global Fair Communications Ltd.
-AS58689	ICC Communication
-AS58768	Daffodil Online Ltd.
-AS58813	Dtech Limited
-AS58912	Chittagong Telecom Services Ltd
-AS59340	Help Line
-AS63526	Systems Solutions & development Technologies Limited
-AS63932	Bangladesh Computer Council
-AS63961	Bangladesh Research and Education Network (BdREN)
-AS63969	Race Online Limited
-AS63980	Minara Firoz Infotech
-AS63996	Mazeda Networks Limited
-AS64063	BDconnect.net
-AS64074	Alpha Broadway System
-AS131247	Infobd24 Systems
-AS131464	Digi Jadoo Broadband Ltd
-AS132608	Mango Teleservices Limited (ISP)
-AS133155	Satellite Connection
-AS133854	X-press Technologies Limited.
-AS134113	Kazi Sazzad Hossain T/A Millennium Computers & Networking
-AS134146	SAM ONLINE
-AS134371	CIRCLE NETWORK BANGLADESH
-AS134562	DISCOVERY INTERNET
-AS134599	Digital Dot Net (DDN)
-AS134712	Pipex Network
-AS134732	Dot Internet
-AS135076	INFOCOM LIMITED
-AS135130	Md. Wahid Murad T/A Anik Computer & Networking
-AS135310	Inspire Broadband
-AS135517	Pandora Technology
-AS136014	SS Online
-AS136141	Mohammad Kamrul Hasan t/a SK Traders
-AS136156	MD Rehanur Rahman t/a M/S FNF Online
-AS136224	City Online Ltd.
-AS136429	BAS Network
-AS136941	Unicom Multi System
-AS137059	Easy Net
-AS137385	Saddam Hossain t/a Asian Network
-AS137403	SALTSYNC
-AS137425	INCOMIT SOLUTION
-AS137453	Orange Communication
-AS137515	Md. Raisul Islam
-AS137526	Plusnet Inc
-AS137532	Md Golam Kibria
-AS137541	Royalnet
-AS137703	Noakhali Broadband Network
-AS137868	Star Internet Service
-AS137959	Vision Technologies Ltd.
-AS137967	Digicon Telecommunication Ltd
-AS138004	MIR INFO SYSTEMS LTD.
-AS138043	T Network
-AS138191	Weblink Communications Ltd
-AS138212	SpaceNet Ltd.
-AS138346	Sajid Trading Ltd.
-AS138362	Md. Mobarak Hossain
-AS138482	Skyview Online Ltd
-AS138536	Premium Connectivity Limited
-AS138548	CONNECT 3
-AS138551	Skyinfo Online
-AS138575	APPLE NET
-AS138640	HelloTech Limited
-AS138915	Kaopu Cloud HK Limited
-AS139283	Touch Online
-AS139325	IQ-TEL
-AS139347	Md Masud Rana Roni t/a RV Cyber World
-AS139642	Smart Link
-AS139643	i Smart
-AS139735	PACE IT
-AS139771	Alpha Network
-AS139904	Kloud Technologies Limited
-AS140616	ZN IT Solution
-AS141398	Search IT
-AS141411	SPEED PLUS
-AS141773	Bangladesh Data Center Company Limited
-AS141988	Optimus Technologies
-AS141997	AHON COMMUNICATION
-AS142547	Fatickchari Communication Network
-AS146946	TS Network
-AS147181	Flarezen Ltd.
-AS147314	IP Communications Limited
-AS149659	Chaldal Limited
-AS150001	Sixty Four Networks Limited.
-AS150142	Wolast Technologies
-AS153377	Extent Technologies Limited
+AS131247
+AS131464
+AS132608
+AS133155
+AS133854
+AS134113
+AS134146
+AS134371
+AS134562
+AS134599
+AS134712
+AS134732
+AS135076
+AS135130
+AS135310
+AS135517
+AS136014
+AS136141
+AS136156
+AS136224
+AS136429
+AS136941
+AS137059
+AS137385
+AS137403
+AS137425
+AS137453
+AS137515
+AS137526
+AS137532
+AS137541
+AS137703
+AS137868
+AS137959
+AS137967
+AS138004
+AS138043
+AS138191
+AS138212
+AS138346
+AS138362
+AS138482
+AS138536
+AS138548
+AS138551
+AS138575
+AS138640
+AS138915
+AS139283
+AS139325
+AS139347
+AS139642
+AS139643
+AS139735
+AS139771
+AS139904
+AS140616
+AS141398
+AS141411
+AS141773
+AS141988
+AS141997
+AS142547
+AS146946
+AS147181
+AS147314
+AS149659
+AS150001
+AS150142
+AS153377
+AS17471
+AS18230
+AS23688
+AS23923
+AS23991
+AS24323
+AS24342
+AS24481
+AS26415
+AS38026
+AS38067
+AS38200
+AS38203
+AS38256
+AS38493
+AS3856
+AS38588
+AS38592
+AS38614
+AS38712
+AS38744
+AS42
+AS45276
+AS45326
+AS45766
+AS55406
+AS55492
+AS55828
+AS56054
+AS58629
+AS58689
+AS58768
+AS58813
+AS58912
+AS59340
+AS63526
+AS63932
+AS63961
+AS63969
+AS63980
+AS63996
+AS64063
+AS64074
+AS6447
+AS7500
+AS9230
+AS9441
+AS9825
+AS9832
