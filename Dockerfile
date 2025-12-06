@@ -13,7 +13,10 @@ RUN apk add --no-cache \
     tini \
     curl \
     tzdata \
-    lynx  
+    lynx \
+    ca-certificates
+
+RUN update-ca-certificates
 
 ENV TZ=Asia/Dhaka
 
